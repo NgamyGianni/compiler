@@ -2,14 +2,17 @@ from tokenizer import tokenizer
 from parser import parser
 from scoring import scoring
 
-f = open("test.js", "r")
-s = f.read()
+file = open("test.js", "r")
+code = file.read()
 
-consts = tokenizer.constrKeyword(s, "const")
+# consts = tokenizer.constrKeyword(s, "const")
 
-print([e.toString() for e in consts])
+# print("".join([str(e.toString())+"\n" for e in consts]))
+    # for const in consts:
+    #     print const.toString()
 
-f.close()
 # tokenizer.tokenizer(f)
 parser.parser()
-scoring.scoring()
+scoring.scoring(code)
+
+file.close()

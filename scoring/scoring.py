@@ -18,8 +18,13 @@ def scoring(code):
         print("")
         # tokens = [{"name" : "switch", "type" : "statementSwitch"},
         # {"name":"toto", "type":"variable"}]
-        AST = parser.parser(tokens)
+        AST = parser.parser(tokens, 0, len(tokens))
+        for node in AST:
+            print(node)
+
         if(len(AST) > 0):
+            print("")
+            print("score: "),
             print(numberLine(AST)+1)
 
         print("------------------------------")

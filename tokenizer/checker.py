@@ -2,8 +2,16 @@ from constants import specialChars
 
 def isSpeacialChar(t):
     for char in specialChars:
-        if t == specialChars[char]["value"]:
+        if t == specialChars[char]["symbol"]:
            return True
     return False
 
-# value = isSpeacialChar("==")
+def changeSymbolToString(code):
+    for elt in specialChars:
+        #print(element)
+        #break
+        code = code.replace(
+            specialChars[elt]["value"], " "+specialChars[elt]["symbol"]+" ")
+    return code
+
+

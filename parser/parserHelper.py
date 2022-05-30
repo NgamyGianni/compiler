@@ -22,3 +22,6 @@ def searchArgs(tokens, start):
         raise NameError(parserConst["errorEmptyArguments"])
 
     return { "args" : args, "end" : end }
+
+def searchCloseBrace(tokens, start):
+    if tokens[start]["type"] == 

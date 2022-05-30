@@ -4,7 +4,7 @@ console.log(y); // hi
 console.log(Y); // 5
 
 const fruit = "banana";
-switch (fruit){
+switch (fruit) {
   case "banana":
     console.log("price 10 cents");
     break;

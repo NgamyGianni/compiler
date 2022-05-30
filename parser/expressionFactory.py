@@ -1,7 +1,7 @@
 class Factory :
-    def __init__(self, type, token, start):
+    def __init__(self, type, tokens, start):
         if type == "statementSwitch":
-            return statementSwitch(token, start)
+            return self.statementSwitch(tokens, start)
 
-    def statementSwitch(token, start):
-        print('switch')
+    def statementSwitch(self, tokens, start):
+        print(tokens[start])

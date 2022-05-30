@@ -11,6 +11,8 @@ specialChars = {
     'compGreater': {'symbol': 'great', 'value': ">"},
     'compLowerThan': {'symbol': 'lowerThan', 'value': "<="},
     'compLower': {'symbol': 'lower', 'value': "<"},
+    'opAnd': {'symbol': 'and', 'value': "&&"},
+    'opOr': {'symbol': 'or', 'value': "||"},
     'quotationMark': {'symbol': 'quotationMark', 'value': '""'},
     'openParenthesis': {'symbol': 'openParenthese', 'value': "("},
     'closeParenthesis': {'symbol': 'closeParenthese', 'value': ")"},
@@ -30,6 +32,8 @@ symbolCompGreaterThan = "greaterThan"
 symbolComptGreater = "great"
 symbolCompLowerThan = "lowerThan"
 symbolCompLower = "lower"
+symbolAnd = "and"
+symbolOr = "or"
 symbolQuotationMark = "quotationMark"
 symbolOpenParenthesis = "openParenthesis"
 symbolCloseParenthesis = "closeParenthesis"

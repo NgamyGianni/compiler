@@ -7,4 +7,4 @@ def isSpeacialChar(t):
            return True, char
     return False, None
 
-value = isSpeacialChar("==")
+#value = isSpeacialChar("==")

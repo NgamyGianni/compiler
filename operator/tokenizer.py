@@ -18,7 +18,8 @@ def charsToTableTokens(code):
     tokens = []
     #print(len(_tokens[0]))
     for element in _tokens:
-        if len(element)==0 or re.findall("[\d]+[\.][\d]+", element) ==[]:
+        print(re.findall("[\d]+|[\d+]\.[\d]+", element), element)
+        if len(element) == 0 or re.findall("[\d]+|[\d+]\.[\d]+", element) == []:
             specialChar = checker.isSpeacialChar(element)
             if specialChar: 
                 #print("elt ", element)
@@ -26,6 +27,7 @@ def charsToTableTokens(code):
             else :
                 tokens.append({"type":constants.typeWord, "value": element})
         else :
+            print(element)
             tokens.append({"type": constants.typeNumber, "value": element})
     #print(re.findall("==", codeToString))
     print("all tokens")

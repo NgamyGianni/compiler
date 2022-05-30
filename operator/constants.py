@@ -1,9 +1,14 @@
 import re
 specialChars = {
-    'compEqual': {'symbol': 'equal', 'value': "=="},
+    'operatorPlus': {'symbol': 'plus', 'value': "+"},
+    'operatorMinus': {'symbol': 'minus', 'value': "-"},
+    'operatorMultiply': {'symbol': 'mult', 'value': "*"},
+    'operatorDivide': {'symbol': 'divide', 'value': "/"},
+    'operatorEqual': {'symbol': 'equal', 'value': "="},
+    'compEqual': {'symbol': 'equalSame', 'value': "=="},
     'compGreaterThan': {'symbol': 'greaterThan', 'value': ">="},
     'compGreater': {'symbol': 'great', 'value': ">"},
-    'compLowerThan': {'symbol': 'lowerThan', 'value': "<"},
+    'compLowerThan': {'symbol': 'lowerThan', 'value': "<="},
     'compLower': {'symbol': 'lower', 'value': "<"},
 }
 
@@ -14,4 +19,4 @@ symbolCompLowerThan = "lowerThan"
 symbolCompLower = "lower"
 
 typeNumber = "number"
-typeNumber = "word"
+typeWord = "word"

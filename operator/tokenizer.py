@@ -19,10 +19,10 @@ def charsToTableTokens(code):
     #print(len(_tokens[0]))
     for element in _tokens:
         if len(element)==0 or re.findall("[\d]+[\.][\d]+", element) ==[]:
-            specialChar = checker.isSpeacialChar(element)
+            specialChar, char = checker.isSpeacialChar(element)
             if specialChar: 
                 #print("elt ", element)
-                tokens.append({"type":element})
+                tokens.append({"type": constants.specialChars[char]['symbol'],"value":element})
             else :
                 tokens.append({"type":constants.typeWord, "value": element})
         else :

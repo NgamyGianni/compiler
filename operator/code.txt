@@ -1,1 +1,4 @@
-arbre == 2;
+const _arbre1== 2.1 ;
+if (a==b) {
+    value = 2; 
+)}

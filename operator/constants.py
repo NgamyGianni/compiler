@@ -17,6 +17,7 @@ specialChars = {
     'openCrochet': {'symbol': 'openCrochet', 'value': "{"},
     'closeCrochet': {'symbol': 'closeCrochet', 'value': "}"},
     'point': {'symbol': 'point', 'value': "."},
+    'semiColon': {'symbol': 'semiColon', 'value': ";"}
 }
 symbolPlus = "plus"
 symbolMinus = "minus"
@@ -35,6 +36,7 @@ symbolCloseParenthesis = "closeParenthesis"
 symbolOpenCrochet = "openCrochet"
 symbolCloseCrochet = "closeCrochet"
 symbolPoint = "point"
+symbolSemiColon = "semiColon"
 
 typeNumber = "number"
 typeWord = "word"

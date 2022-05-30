@@ -44,7 +44,7 @@ def tokenizer(file):
     for token in tokens:
         print(token)
 
-class constant :
+class Constant :
 
     def __init__(self, name, value):
         self.name = name
@@ -63,6 +63,9 @@ class constant :
     def toString(self):
         return self.struct
 
+def wordsLineCleared(line):
+    return [word for word in line if word != ""]
+
 def stringToLines(s):
     return [word.split(" ") for word in s.split("\n")]
 
@@ -77,7 +80,8 @@ def checkKeyword(keyword, s):
     return keyword in linesToLine(lines)
 
 def verifyLine(keyword, line):
-    return len(line) >= 4 and line[0] == keyword and line[2] == "=" and ";" in lineToList(line, 2)
+    clearLine = wordsLineCleared(line)
+    return len(clearLine) >= 4 and clearLine[0] == keyword and clearLine[2] == "=" and ";" in lineToList(clearLine, 2)
 
 def constrKeyword(s, keyword):
-    return [constant(line[1], line[3].split(";")[0]) for line in stringToLines(s) if keyword in line]
+    return [Constant(wordsLineCleared(line)[1], wordsLineCleared(line)[3].split(";")[0]) for line in stringToLines(s) if keyword in line if verifyLine(keyword, line)]

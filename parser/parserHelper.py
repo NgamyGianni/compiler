@@ -2,7 +2,7 @@ from parserConst import parserConst
 
 def searchArgs(tokens, start):
     if tokens[start]["type"] != "openParenthese":
-        print("bad expression")
+        raise NameError(parserConst["errorMissingOpenParenthesis"])
     findEnd = False
     end = 0
     args = []
@@ -19,6 +19,6 @@ def searchArgs(tokens, start):
     if not findEnd:
         raise NameError(parserConst["errorMissingClosingParenthesis"])
     if len(args) == 0:
-        print("empty arguments given")
+        raise NameError(parserConst["errorEmptyArguments"])
 
     return { "args" : args, "end" : end }

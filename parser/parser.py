@@ -4,7 +4,7 @@ from parserHelper import *
 
 def parser(tokens):
     AST = []
-    factory = None
+    expression = None
     for i in range(len(tokens)):
         token = tokens[i]
         if (token["type"]):

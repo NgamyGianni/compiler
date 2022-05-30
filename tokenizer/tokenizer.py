@@ -10,7 +10,7 @@ def charsToTableTokens(code):
     _tokens = re.findall("[\d][\.][\d+]|\w+|[=;\(\)\[\]\{\}]+", codeToString)
     tokens = []
     for element in _tokens:
-        if len(element)==0 or re.findall("[\d]+[\.][\d]+", element) ==[]:
+        if len(element)==0 or re.findall("[\d]+|[\d+]\.[\d]+", element) ==[]:
             specialChar = checker.isSpeacialChar(element)
             if specialChar:
                 tokens.append({"type":element})

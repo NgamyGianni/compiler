@@ -19,6 +19,7 @@ specialChars = {
     'point': {'symbol': 'point', 'value': "."},
     'semiColon': {'symbol': 'semiColon', 'value': ";"}
 }
+
 symbolPlus = "plus"
 symbolMinus = "minus"
 symbolMultiply = "multiply"

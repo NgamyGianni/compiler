@@ -5,15 +5,15 @@ import re
 def charsToTableTokens(code):
     openCode = open(code,"r")
     codeToString = openCode.read()
-    print("read the code")
-    print(codeToString)
+    #print("read the code")
+    #print(codeToString)
     #print(re.split("[\s]+", codeToString))
     #_tokens = re.split(" ", codeToString)
     # =;\(\)\[\]\{\}
     #[=]|[\(]|[\)]
     _tokens = re.findall("[\d][\.][\d+]|\w+|[=;\(\)\[\]\{\}]+", codeToString)
     #_tokens = re.split("\w|",codeToString)
-    print("all chars in")
+    #print("all chars in")
     #print(_tokens)
     tokens = []
     #print(len(_tokens[0]))
@@ -28,10 +28,11 @@ def charsToTableTokens(code):
         else :
             tokens.append({"type": constants.typeNumber, "value": element})
     #print(re.findall("==", codeToString))
-    print("all tokens")
-    print(tokens)
-    return 0
+    #print("all tokens")
+    #print(tokens)
+    return tokens
 
 code = "code.txt"
 value = charsToTableTokens(code)
-#print(float("100a"))
+
+print(value)

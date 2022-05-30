@@ -1,21 +1,22 @@
-from tokenizer import tokenizer
-from parser import parser
+# from tokenizer import tokenizer
+# from parser import parser
 from scoring import scoring
 
 file = open("test.js", "r")
 code = file.read()
+scoring.scoring(code)
 
-tokens01 = tokenizer.constrKeyword(code, "const")
+file.close()
+
+# tokens01 = tokenizer.constrKeyword(code, "const")
 
 # print("".join([str(e.toString())+"\n" for e in consts]))
     # for const in consts:
     #     print const.toString()
 
 # tokenizer.tokenizer(f)
-tokens = [{"name" : "switch", "type" : "statementSwitch"},
-{"name":"toto", "type":"variable"}]
-print(tokens)
-parser.parser(tokens)
-scoring.scoring(code)
-
-file.close()
+# tokens = [{"name" : "switch", "type" : "statementSwitch"},
+# {"name":"toto", "type":"variable"}]
+# print(tokens)
+# parser.parser(tokens)
+# scoring.scoring(code)

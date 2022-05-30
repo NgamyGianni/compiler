@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 ./operator/__pycache__/
+=======
+./operator/__pycache__
+*.pyc
+>>>>>>> 6d80253327c1581ef7f26d61c78106e2ec6eec84

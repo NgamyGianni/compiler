@@ -13,8 +13,8 @@ def scoring(code):
 
     print("------------ AST -------------")
     print("")
-    # tokens = [{"name" : "switch", "type" : "statementSwitch"},
-    # {"name":"toto", "type":"variable"}]
+    tokens = [{"name" : "switch", "type" : "statementSwitch"},
+    {"name":"toto", "type":"variable"}]
     AST = parser.parser(tokens)
     if(len(AST) > 0):
         print(numberLine(AST)+1)

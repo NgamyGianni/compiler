@@ -2,6 +2,8 @@ import constants
 import checker
 import re
 
+import parser
+
 def charsToTableTokens(code):
     openCode = open(code,"r")
     codeToString = openCode.read()
@@ -19,3 +21,5 @@ def charsToTableTokens(code):
         else :
             tokens.append({"type": constants.typeNumber, "value": element})
     return tokens
+
+print(charsToTableTokens("code.txt"))

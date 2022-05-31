@@ -2,7 +2,10 @@ import constants
 import parserHelper
 import parserConst
 import parser
+<<<<<<< HEAD
 import tokenizer
+=======
+>>>>>>> 349cd83e4fa29008f5013cf8463704229f0f51a6
 
 def create(type, tokens, start):
         if type == "statementSwitch":
@@ -59,6 +62,23 @@ def statementCase(tokens, start):
         if not foundEnd:
             raise NameError(parserConst.parserConst["errorMissingBreakStatement"])
         return { "type" : parserConst.parserConst["statementCase"], "value" : tokens[start+1]["value"], "start" : start, "end" : end , "AST" : parser.parserFunc([], tokens, start+2, end) }
+<<<<<<< HEAD
 
 
 
+=======
+    
+def variableDeclaration(tokens, start):
+        if(tokens[start+1]["type"] != constants.typeWord):
+            print("erreur : nom de variable non accepté")
+        variableName= tokens[start+1]["value"]
+        return {"type": "expressionDeclaration", "variableName": variableName}
+
+def variableAffectation(tokens, start):
+        if(tokens[start-1]["type"] != constants.typeWord):
+            print("erreur : nom de variable non accepté")
+        variableName= tokens[start-1]["value"]
+        variableValue= tokens[start+1]
+        return {"type": "expressionAffectation", "variableName": variableName, "variableValue": variableValue}
+    
+>>>>>>> 349cd83e4fa29008f5013cf8463704229f0f51a6

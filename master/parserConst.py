@@ -14,3 +14,8 @@ parserConst = {
 }
 
 declarationFunction = "function"
+declarationVariable = ["var", "let", "const"]
+
+expressionDeclaration = "variableDeclaration"
+expressionAffectation = "variableAffectation"
+expressionMethodCall = "objectMethodCall"

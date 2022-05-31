@@ -8,7 +8,6 @@ def parserFunc(AST, tokens, start, end):
     # AST = []
     i = start
     while i >= start and i  < end:
-    # for i in range(len(tokens)):
         expression = None
         token = tokens[i]
         

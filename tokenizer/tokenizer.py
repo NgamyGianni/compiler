@@ -34,7 +34,7 @@ def charsToTableTokens(code):
 # code = f.read()
 # print("before")
 # print(code)
-
-print("after")
-print(charsToTableTokens("code.txt"))
+# if __name__=="__main__":
+#     print("after")
+#     print(charsToTableTokens("code.txt"))
 #value = isSpeacialChar("==")

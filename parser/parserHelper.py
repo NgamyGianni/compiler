@@ -1,5 +1,6 @@
-from parserConst import parserConst
-
+#from asyncio import constants
+import parserConst
+import ..tokenizer.constants as constant
 def searchArgs(tokens, start):
     if tokens[start]["type"] != "openParenthese":
         raise NameError(parserConst["errorMissingOpenParenthesis"])
@@ -23,5 +24,19 @@ def searchArgs(tokens, start):
 
     return { "args" : args, "end" : end }
 
-def searchCloseBrace(tokens, start):
-    if tokens[start]["type"] == 
+def searchCloseCurlBrace(tokens, start):
+    countCurlBrace = 1
+    if start == len(tokens):
+        raise NameError(parserConst["errorExeceptCurlBrace"])
+    i = start
+    while i<len(tokens):
+        i+=1
+        if tokens[i]["type"]==constant.symbolCloseCurlyBrace :#constants.symbolCloseCurlyBrace:
+            countCurlBrace-=1
+            break
+    if countCurlBrace!=0:
+        raise NameError(parserConst["errorExeceptCurlBrace"])
+    end = i
+    return {"start":start, "end":end}
+
+

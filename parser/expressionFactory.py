@@ -1,5 +1,5 @@
 from ast import operator
-import ..tokenizer.constants as constants
+from tokenizer import constants
 import parserConst
  
 class Factory :
@@ -24,8 +24,7 @@ class Factory :
             if tokens[i]["type"] == constants.specialChars["closeParenthesis"]["value"]:
                 numbParathensis-=1
                 break
-        if numbParathensis ==0:
+        if numbParathensis !=0:
             raise NameError(parserConst.exceptedErros[0])
+        return 0
 
-
-)

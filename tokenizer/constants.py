@@ -40,3 +40,6 @@ symbolSemiColon = "semiColon"
 
 typeNumber = "number"
 typeWord = "word"
+
+# if __name__=="__main__":
+#     print("I am in constant module")

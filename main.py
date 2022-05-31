@@ -20,3 +20,5 @@ file.close()
 # print(tokens)
 # parser.parser(tokens)
 # scoring.scoring(code)
+if __name__=="__main__":
+    print("I am the main module")

@@ -5,8 +5,8 @@ specialChars = {
     'operatorMinus': {'symbol': 'minus', 'value': "-"},
     'operatorMultiply': {'symbol': 'mult', 'value': "*"},
     'operatorDivide': {'symbol': 'divide', 'value': "/"},
-    'operatorEqual': {'symbol': 'equal', 'value': "="},
     'compEqual': {'symbol': 'equalSame', 'value': "=="},
+    'operatorEqual': {'symbol': 'equal', 'value': "="},
     'compGreaterThan': {'symbol': 'greaterThan', 'value': ">="},
     'compGreater': {'symbol': 'great', 'value': ">"},
     'compLowerThan': {'symbol': 'lowerThan', 'value': "<="},
@@ -14,10 +14,10 @@ specialChars = {
     'opAnd': {'symbol': 'and', 'value': "&&"},
     'opOr': {'symbol': 'or', 'value': "||"},
     'quotationMark': {'symbol': 'quotationMark', 'value': '""'},
-    'openParenthesis': {'symbol': 'openParenthese', 'value': "("},
-    'closeParenthesis': {'symbol': 'closeParenthese', 'value': ")"},
-    'openCrochet': {'symbol': 'openCrochet', 'value': "{"},
-    'closeCrochet': {'symbol': 'closeCrochet', 'value': "}"},
+    'openParenthesis': {'symbol': 'openParenthesis', 'value': "("},
+    'closeParenthesis': {'symbol': 'closeParenthesis', 'value': ")"},
+    'openCurlyBrace': {'symbol': 'openCurlyBrace', 'value': "{"},
+    'closeCurlyBrace': {'symbol': 'closeCurlyBrace', 'value': "}"},
     'point': {'symbol': 'point', 'value': "."},
     'semiColon': {'symbol': 'semiColon', 'value': ";"}
 }
@@ -38,10 +38,12 @@ symbolOr = "or"
 symbolQuotationMark = "quotationMark"
 symbolOpenParenthesis = "openParenthesis"
 symbolCloseParenthesis = "closeParenthesis"
-symbolOpenCrochet = "openCrochet"
-symbolCloseCrochet = "closeCrochet"
+symbolOpenCurlyBrace = "openCurlyBrace"
+symbolCloseCurlyBrace = "closeCurlyBrace"
 symbolPoint = "point"
 symbolSemiColon = "semiColon"
-
 typeNumber = "number"
 typeWord = "word"
+
+# if __name__=="__main__":
+#     print("I am in constant module")

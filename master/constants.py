@@ -11,12 +11,14 @@ specialChars = {
     'compGreater': {'symbol': 'great', 'value': ">"},
     'compLowerThan': {'symbol': 'lowerThan', 'value': "<="},
     'compLower': {'symbol': 'lower', 'value': "<"},
+    'opAnd': {'symbol': 'and', 'value': "&&"},
+    'opOr': {'symbol': 'or', 'value': "||"},
     'quotationMark': {'symbol': 'quotationMark', 'value': '""'},
-    'openParenthesis': {'symbol': 'openParenthese', 'value': "("},
-    'closeParenthesis': {'symbol': 'closeParenthese', 'value': ")"},
+    'openParenthesis': {'symbol': 'openParenthesis', 'value': "("},
+    'closeParenthesis': {'symbol': 'closeParenthesis', 'value': ")"},
     'openCurlyBrace': {'symbol': 'openCurlyBrace', 'value': "{"},
     'closeCurlyBrace': {'symbol': 'closeCurlyBrace', 'value': "}"},
-    'point': {'symbol': 'point', 'value': "."},
+    #'point': {'symbol': 'point', 'value': "."},
     'semiColon': {'symbol': 'semiColon', 'value': ";"}
 }
 symbolPlus = "plus"
@@ -24,18 +26,20 @@ symbolMinus = "minus"
 symbolMultiply = "multiply"
 symbolDivide = "divide"
 symbolCompLower = "lower"
-symbolCompEqual = "equal"
-symbolEqualSame = "equalSame"
+symbolCompEqual = "equalSame"
+symbolEqual = "equal"
 symbolCompGreaterThan = "greaterThan"
 symbolComptGreater = "great"
 symbolCompLowerThan = "lowerThan"
 symbolCompLower = "lower"
+symbolAnd = "and"
+symbolOr = "or"
 symbolQuotationMark = "quotationMark"
 symbolOpenParenthesis = "openParenthesis"
 symbolCloseParenthesis = "closeParenthesis"
 symbolOpenCurlyBrace = "openCurlyBrace"
 symbolCloseCurlyBrace = "closeCurlyBrace"
-symbolPoint = "point"
+#symbolPoint = "point"
 symbolSemiColon = "semiColon"
 typeNumber = "number"
 typeWord = "word"

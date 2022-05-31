@@ -1,5 +1,6 @@
 #from asyncio import constants
 import parserConst
+<<<<<<< HEAD
 import os
 import sys
 libdir = os.path.dirname(__file__)
@@ -7,24 +8,27 @@ sys.path.append(os.path.split(libdir)[0])
 #print(os.path.split(libdir))
 from tokenizers import constants
 #from tokenizers import tokenizer
+=======
+from .. import tokenizer.constants as constant
+>>>>>>> 19350616f68ea295ecf5e46ca2f82638a71795c0
 
 def searchArgs(tokens, start):
-    if not tokens[start]["type"] == "(":
+    if tokens[start]["type"] != "openParenthese":
         raise NameError(parserConst["errorMissingOpenParenthesis"])
-    foundEnd = False
+    findEnd = False
     end = 0
     args = []
-    for i in range(start, len(tokens)):
-        if tokens[i]["type"] == ")":
-            foundEnd = True
+    for i in range(len(tokens)):
+        if tokens[i]["type"] == "symboleCloseParenthesis":
+            findEnd = True
             end = i
-            break
-        elif tokens[i]["type"] == "word":
-            args.append({ "type" : "word", "name" : tokens[i]["value"] })
-        elif tokens[i]["type"] == "number":
-            args.append({ "type" : "number", "name" : tokens[i]["value"] })
+            break;
+        elif tokens[i]["type"] == "typeWord":
+            args.append({ "type" : "variable", "name" : tokens[i]["name"] })
+        elif tokens[i]["type"] == "typeNumber":
+            args.append({ "type" : "variable", "name" : tokens[i]["name"] })
 
-    if not foundEnd:
+    if not findEnd:
         raise NameError(parserConst["errorMissingClosingParenthesis"])
     if len(args) == 0:
         raise NameError(parserConst["errorEmptyArguments"])
@@ -37,17 +41,17 @@ def searchCloseCurlBrace(tokens, start):
         raise NameError(parserConst["errorExeceptCurlBrace"])
     i = start
     while i<len(tokens):
+<<<<<<< HEAD
         if tokens[i]["type"]==constants.symbolCloseCurlyBrace :#constants.symbolCloseCurlyBrace:
+=======
+        if tokens[i]["type"]==constant.symbolCloseCurlyBrace :#constants.symbolCloseCurlyBrace:
+>>>>>>> 19350616f68ea295ecf5e46ca2f82638a71795c0
             countCurlBrace-=1
-        elif tokens[i]["type"] == constants.symbolOpenCurlyBrace:
-            countCurlBrace+=1
-        if countCurlBrace == 0:
             break
         i+=1
     if countCurlBrace!=0:
         raise NameError(parserConst["errorExeceptCurlBrace"])
     end = i
     return {"start":start, "end":end}
-
 
 

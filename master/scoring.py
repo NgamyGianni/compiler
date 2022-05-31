@@ -1,12 +1,12 @@
-from tokenizer import tokenizer
-from parser import parser
-from scoringHelper import *
+import tokenizer
+import scoringHelper
+import parser
 
 def scoring(code):
     try:
         print("----------- Tokens -----------")
 
-        code = "test.js"
+        #code = "test.js"
         tokens = tokenizer.charsToTableTokens(code)
         print("")
         for token in tokens:
@@ -19,7 +19,7 @@ def scoring(code):
         # tokens = [{"name" : "switch", "type" : "statementSwitch"},
         # {"name":"toto", "type":"variable"}]
         AST = []
-        AST = parser.parser(AST, tokens, 0, len(tokens))
+        AST = parser.parserFunc(AST, tokens, 0, len(tokens))
         # for node in AST:
         #     print(node)
         displayAST(AST, False, 0, len(AST))
@@ -28,7 +28,7 @@ def scoring(code):
         if(len(AST) > 0):
             # print("")
             print("score: "),
-            print(numberLine(AST)+1)
+            print(scoringHelper.numberLine(AST)+1)
 
         # print("------------------------------")
     except Exception as e:

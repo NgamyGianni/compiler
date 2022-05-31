@@ -21,14 +21,15 @@ import parserHelper
 # parser.parser(tokens)
 # scoring.scoring(code)
 if __name__=="__main__":
-    print("I am the main module")
-    tokens = tokenizer.charsToTableTokens("code.txt")
-    print(tokens[6])
-    #args = parserHelper.searchCloseCurlBrace(tokens, 6)
-    args = parserHelper.searchArgs(tokens,1)
-    print(args)
+    # print("I am the main module")
+    # tokens = tokenizer.charsToTableTokens("code.txt")
+    # print(tokens[6])
+    # #args = parserHelper.searchCloseCurlBrace(tokens, 6)
+    # args = parserHelper.searchArgs(tokens,1)
+    # print(args)
     # print("argument are :")
     # print(args)
     # print("last value tokens ", len(tokens))
+    scoring.scoring("code.js")
     
 

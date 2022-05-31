@@ -35,19 +35,21 @@ def create(type, tokens, start):
 
    #check switch statement
 def statementSwitch(tokens, start):
-        end = 0
-        argument = parserHelper.searchArgs(tokens, start+1)
-        print(argument)
-        if not tokens[argument["end"]+1]["type"] == constants.symbolOpenCurlyBrace:
-            raise NameError(parserConst.parserConst["errorMissingOpeningBrace"])
-        for i in range(start, len(tokens)):
-            if tokens[i]["type"] == constants.symbolCloseCurlyBrace:
-                end = i
-                foundEnd = True
-                break
-        if not foundEnd:
-            raise NameError(parserConst.parserConst["errorMissingBreakStatement"])
-        return { "type" : parserConst.statementSwitch, "argument" : argument["args"], "start" : start, "end" : end, "varType" : argument["args"][0]["type"], "AST" : parser.parserFunc([], tokens, argument["end"]+2, end)}
+    end = 0
+    argument = parserHelper.searchArgs(tokens, start+1)
+    print(argument)
+    if not tokens[argument["end"]+1]["type"] == constants.symbolOpenCurlyBrace:
+        raise NameError(
+                parserConst.parserConst["errorMissingOpeningBrace"])
+        # for i in range(start, len(tokens)):
+        #     if tokens[i]["type"] == constants.symbolCloseCurlyBrace:
+        #         end = i
+        #         foundEnd = True
+        #         break
+    brace = parserHelper.searchCloseCurlBrace(tokens, argument["end"]+1)
+        # if not foundEnd:
+        #     raise NameError(parserConst.parserConst["errorMissingBreakStatement"])
+    return {"type": parserConst.statementSwitch, "argument": argument["args"], "start": start, "end": brace["end"], "varType": argument["args"][0]["type"], "AST": parser.parserFunc([], tokens, argument["end"]+2, brace["end"])}
 
     #check switch statement
 def statementCase(tokens, start):

@@ -12,9 +12,9 @@ def create(type, tokens, start):
             return statementCase(tokens, start)
         elif type == parserConst.declarationFunction:
             return definedMethod(tokens, start)
-        elif type == "word" and tokens[start]["value"] in parserConst.declarationVariable:
+        elif type in parserConst.declarationVariable:
             return variableDeclaration(tokens, start)
-        elif type == "equal":
+        elif type == constants.symbolEqual:
             return variableAffectation(tokens, start)
 
 def definedMethod(tokens, start):

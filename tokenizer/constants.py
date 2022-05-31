@@ -37,7 +37,6 @@ symbolOpenCurlyBrace = "openCurlyBrace"
 symbolCloseCurlyBrace = "closeCurlyBrace"
 symbolPoint = "point"
 symbolSemiColon = "semiColon"
-
 typeNumber = "number"
 typeWord = "word"
 

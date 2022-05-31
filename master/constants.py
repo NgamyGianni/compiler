@@ -18,7 +18,7 @@ specialChars = {
     'closeParenthesis': {'symbol': 'closeParenthesis', 'value': ")"},
     'openCurlyBrace': {'symbol': 'openCurlyBrace', 'value': "{"},
     'closeCurlyBrace': {'symbol': 'closeCurlyBrace', 'value': "}"},
-    'point': {'symbol': 'point', 'value': "."},
+    #'point': {'symbol': 'point', 'value': "."},
     'semiColon': {'symbol': 'semiColon', 'value': ";"}
 }
 symbolPlus = "plus"
@@ -39,7 +39,7 @@ symbolOpenParenthesis = "openParenthesis"
 symbolCloseParenthesis = "closeParenthesis"
 symbolOpenCurlyBrace = "openCurlyBrace"
 symbolCloseCurlyBrace = "closeCurlyBrace"
-symbolPoint = "point"
+#symbolPoint = "point"
 symbolSemiColon = "semiColon"
 typeNumber = "number"
 typeWord = "word"

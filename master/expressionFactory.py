@@ -1,3 +1,4 @@
+from ast import arguments
 import constants
 import parserHelper
 import parserConst
@@ -9,25 +10,16 @@ def create(type, tokens, start):
             return statementSwitch(tokens, start)
         elif type == parserConst.statementCase:
             return statementCase(tokens, start)
+        elif type == parserConst.declarationFunction:
+            return definedMethod(tokens, start)
 
 def definedMethod(tokens, start):
-        if tokens[start+1]["type"]
-        # if tokens[start+1]["type"] == constants.typeNumber:
-        #     raise NameError(parserConst.exceptedErros[5])
-        # if tokens[start+2]["type"] != constants.specialChars["openParenthesis"]["value"]:
-        #     raise NameError(parserConst.exceptedErros[6])
-
-        # arguments =[]
-        # numbParathensis = 1
-        # i = start+3
-        # while i<len(tokens):
-        #     arguments.append(tokens[i])
-        #     if tokens[i]["type"] == constants.specialChars["closeParenthesis"]["value"]:
-        #         numbParathensis-=1
-        #         break
-        # if numbParathensis !=0:
-        #     raise NameError(parserConst.exceptedErros[0])
-        # return 0
+        if tokens[start+1]["type"]!=constants.typeWord:
+            raise NameError(parserConst["errorExceptedfunctionName"])
+        arguments = parserHelper.searchArgs(tokens,start+2)
+        brace = parserHelper.searchCloseCurlBrace(tokens, arguments["end"]+1)
+        
+        return {"type": parserConst.declarationFunction, "argument": arguments["args"], "start": start, "end": brace["end"], "varType": arguments["args"][0]["type"], "AST": parser.parserFunc([], tokens, arguments["end"]+2, brace["end"])}
 
    #check switch statement
 def statementSwitch(tokens, start):
@@ -36,14 +28,15 @@ def statementSwitch(tokens, start):
         print(argument)
         if not tokens[argument["end"]+1]["type"] == constants.symbolOpenCurlyBrace:
             raise NameError(parserConst.parserConst["errorMissingOpeningBrace"])
-        for i in range(start, len(tokens)):
-            if tokens[i]["type"] == constants.symbolCloseCurlyBrace:
-                end = i
-                foundEnd = True
-                break
-        if not foundEnd:
-            raise NameError(parserConst.parserConst["errorMissingBreakStatement"])
-        return { "type" : parserConst.statementSwitch, "argument" : argument["args"], "start" : start, "end" : end, "varType" : argument["args"][0]["type"], "AST" : parser.parserFunc([], tokens, argument["end"]+2, end)}
+        # for i in range(start, len(tokens)):
+        #     if tokens[i]["type"] == constants.symbolCloseCurlyBrace:
+        #         end = i
+        #         foundEnd = True
+        #         break
+        brace = parserHelper.searchCloseCurlBrace(tokens,argument["end"]+1)
+        # if not foundEnd:
+        #     raise NameError(parserConst.parserConst["errorMissingBreakStatement"])
+        return { "type" : parserConst.statementSwitch, "argument" : argument["args"], "start" : start, "end" : brace["end"], "varType" : argument["args"][0]["type"], "AST" : parser.parserFunc([], tokens, argument["end"]+2, end)}
 
     #check switch statement
 def statementCase(tokens, start):
@@ -54,7 +47,7 @@ def statementCase(tokens, start):
             raise NameError(parserConst.parserConst["errorCaseInvalidType"])
         for i in range(start, len(tokens)):
             if tokens[i]["type"] == "word" and tokens[i]["value"] == "break":
-                end = i
+                end = i+1
                 foundEnd = True
                 break
         if not foundEnd:

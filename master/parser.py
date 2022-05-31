@@ -14,10 +14,12 @@ def parserFunc(AST, tokens, start, end):
             expression = factory.create(parserConst.statementSwitch, tokens, i)
         elif token["type"] == "word" and token["value"] == "case":
             expression = factory.create(parserConst.statementCase, tokens, i)
-
+        elif token["type"] == "word" and token["value"] == parserConst.declarationFunction:
+            expression = factory.create(
+                parserConst.declarationFunction, tokens, i)
         if expression:
             AST.append(expression)
-            i = expression["end"] + 1
+            i = expression["end"] 
         else:
             AST.append(tokens[i])
         i += 1

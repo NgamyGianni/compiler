@@ -12,3 +12,5 @@ parserConst = {
     "statementSwitch" : "statementSwitch",
     "statementCase" : "statementCase"
 }
+
+declarationFunction = "function"

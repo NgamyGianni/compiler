@@ -8,12 +8,11 @@ def parser(tokens):
     for i in range(len(tokens)):
         token = tokens[i]
         if (token["type"]):
-            factory = Factory(token["type"], tokens, i)
-            #deplace dans scoring
-            try:
-                searchArgs(tokens, i)
-            except Exception as e:
-                print(e)
+            expression = Factory(token["type"], tokens, i)
+            searchArgs(tokens, i)
 
-    AST.append(factory)
+        if expression:
+            AST.append(expression)
+        else:
+            AST.append(tokens[i])
     return AST

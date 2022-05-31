@@ -2,7 +2,12 @@ import constants
 import checker
 import re
 
-import parser
+import os
+import sys
+libdir = os.path.dirname(__file__)
+sys.path.append(os.path.split(libdir)[0])
+
+from parser import parser
 
 def charsToTableTokens(code):
     openCode = open(code,"r")
@@ -22,4 +27,9 @@ def charsToTableTokens(code):
             tokens.append({"type": constants.typeNumber, "value": element})
     return tokens
 
-print(charsToTableTokens("code.txt"))
+tokens = charsToTableTokens("code.txt")
+
+for i in range(len(tokens)):
+    tokens[i] = parser.Factory(tokens[i]["type"], tokens, i)
+    
+print(tokens)

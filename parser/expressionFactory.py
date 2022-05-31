@@ -19,18 +19,30 @@ class Factory :
     def statementSwitch(self, tokens, start):
         print(tokens[start])
 
-    def variableDeclaration(self, tokens, start):
+def variableDeclaration(tokens, start):
         if(tokens[start+1]["type"] != constants.typeWord):
             print("erreur : nom de variable non accepté")
         variableName= tokens[start+1]["value"]
         return {"type": "expressionDeclaration", "variableName": variableName}
 
-    def variableAffectation(self, tokens, start):
+def variableAffectation(tokens, start):
         if(tokens[start-1]["type"] != constants.typeWord):
             print("erreur : nom de variable non accepté")
         variableName= tokens[start-1]["value"]
         variableValue= tokens[start+1]
         return {"type": "expressionAffectation", "variableName": variableName, "variableValue": variableValue}
 
-value = [{'type': 'word', 'value': 'const'}, {'type': 'word', 'value': '_arbre1'}, {'type': 'equal', 'value': '='}, {'type': 'word', 'value': 'a'}, {'type': 'semiColon', 'value': ';'}, {'type': 'word', 'value': 'if'}, {'type': 'openParenthese', 'value': '('}, {'type': 'word', 'value': 'a'}, {'type': 'equalSame', 'value': '=='}, {'type': 'word', 'value': 'b'}, {'type': 'closeParenthese', 'value': ')'}, {'type': 'openCrochet', 'value': '{'}, {'type': 'word', 'value': 'value'}, {'type': 'equal', 'value': '='}, {'type': 'word', 'value': '2'}, {'type': 'semiColon', 'value': ';'}, {'type': 'closeCrochet', 'value': '}'}, {'type': 'word', 'value': '_arbre1'}, {'type': 'equal', 'value': '='}, {'type': 'word', 'value': 'b'}, {'type': 'semiColon', 'value': ';'}]
-
+tokens = [{'type': 'word', 'value': 'if'}, {'type': 'openParenthese'}, {'type': 'word', 'value': 'a'}, {'type': 'equalSame'}, {'type': 'number', 'value': '12'}, {'type': 'closeParenthese'}, {'type': 'word', 'value': ''}, {'type': 'openCurlyBrace'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': 'var'}, {'type': 'word', 'value': 'p'}, {'type': 'equal'}, {'type': 'number', 'value': '3'}, {'type': 'semiColon'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': 'if'}, {'type': 'openParenthese'}, {'type': 'word', 'value': 'b'}, {'type': 'equalSame'}, {'type': 'number', 'value': '3'}, {'type': 'closeParenthese'}, {'type': 'word', 'value': ''}, {'type': 'openCurlyBrace'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': 'let'}, {'type': 'word', 'value': 'i'}, {'type': 'equal'}, {'type': 'number', 'value': '5'}, {'type': 'semiColon'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'closeCurlyBrace'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'closeCurlyBrace'}, {'type': 'word', 'value': ''}]
+tmp_tokens = tokens[:]
+a = 0
+b = 0
+for i in range(len(tokens)):
+    if tokens[i]["type"] == "equal":
+        if tokens[i+1]["type"] != "semiColon":
+            tmp_tokens[i] = variableAffectation(tokens, i)
+            a+=1
+        else:
+            tmp_tokens[i] = variableDeclaration(tokens, i)
+            b+=1
+     
+print(tmp_tokens)

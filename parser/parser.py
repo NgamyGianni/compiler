@@ -1,10 +1,11 @@
-from expressionFactory import Factory
+# from expressionFactory import Factory
+import expressionFactory as factory
 from tokenizer import tokenizer
 from parserHelper import *
 from parserConst import parserConst
 
 def parser(AST, tokens, start, end):
-    factory = Factory();
+    # factory = Factory();
     # AST = []
     i = start
     while i >= start and i  < end:

@@ -1,14 +1,16 @@
 #from asyncio import constants
-import parserConst
-from ..tokenizer import constants
+from parser import parserConst
+from tokenizer import constants
+
 def searchArgs(tokens, start):
-    if not tokens[start]["type"] == "(":
-        raise NameError(parserConst["errorMissingOpenParenthesis"])
+    print(tokens[start]["type"],constants.symbolOpenParenthesis)
+    if not tokens[start]["type"] == constants.symbolOpenParenthesis:
+        raise NameError(parserConst.parserConst["errorMissingOpenParenthesis"])
     foundEnd = False
     end = 0
     args = []
     for i in range(start, len(tokens)):
-        if tokens[i]["type"] == ")":
+        if tokens[i]["type"] == constants.symbolCloseParenthesis:
             foundEnd = True
             end = i
             break
@@ -18,9 +20,9 @@ def searchArgs(tokens, start):
             args.append({ "type" : "number", "name" : tokens[i]["value"] })
 
     if not foundEnd:
-        raise NameError(parserConst["errorMissingClosingParenthesis"])
+        raise NameError(parserConst.parserConst["errorMissingClosingParenthesis"])
     if len(args) == 0:
-        raise NameError(parserConst["errorEmptyArguments"])
+        raise NameError(parserConst.parserConst["errorEmptyArguments"])
 
     return { "args" : args, "end" : end }
 

@@ -1,4 +1,4 @@
-from constants import specialChars
+from tokenizer.constants import specialChars
 
 def isSpeacialChar(t):
     for char in specialChars:

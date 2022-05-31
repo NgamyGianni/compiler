@@ -5,7 +5,6 @@ from scoring import scoring
 file = open("test.js", "r")
 code = file.read()
 scoring.scoring(code)
-
 file.close()
 
 # tokens01 = tokenizer.constrKeyword(code, "const")

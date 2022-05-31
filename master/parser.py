@@ -1,6 +1,7 @@
 import expressionFactory as factory
 import tokenizer
 import parserConst
+import constants
 
 def parserFunc(AST, tokens, start, end):
 
@@ -14,6 +15,10 @@ def parserFunc(AST, tokens, start, end):
             expression = factory.create(parserConst.statementSwitch, tokens, i)
         elif token["type"] == "word" and token["value"] == "case":
             expression = factory.create(parserConst.statementCase, tokens, i)
+        elif token["type"] == "word" and token["value"] in parserConst.declarationVariable:
+            expression = factory.create(token["value"], tokens, i)
+        elif token["type"] == constants.symbolEqual:
+            expression = factory.create(constants.symbolEqual, tokens, i)
 
         if expression:
             AST.append(expression)

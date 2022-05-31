@@ -1,4 +1,4 @@
-const y = f(x);
+const y = "ok";
 const Y = 5.; // hi
 console.log(y); // hi
 console.log(Y); // 5

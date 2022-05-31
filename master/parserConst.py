@@ -9,8 +9,7 @@ parserConst = {
     "errorMissingClosingBrace" : "Error: missing closing brace",
     "errorEmptyArguments" : "Error: no arguments given",
     "errorCaseInvalidType" : "Error: invalid type for case statement",
-    "statementSwitch" : "statementSwitch",
-    "statementCase" : "statementCase"
+    
 }
 
 declarationFunction = "function"
@@ -19,3 +18,6 @@ declarationVariable = ["var", "let", "const"]
 expressionDeclaration = "variableDeclaration"
 expressionAffectation = "variableAffectation"
 expressionMethodCall = "objectMethodCall"
+
+statementSwitch = "switch"
+statementCase = "case"

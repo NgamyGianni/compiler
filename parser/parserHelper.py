@@ -1,23 +1,30 @@
 #from asyncio import constants
 import parserConst
-from .. import tokenizer.constants as constant
+import os
+import sys
+libdir = os.path.dirname(__file__)
+sys.path.append(os.path.split(libdir)[0])
+#print(os.path.split(libdir))
+from tokenizers import constants
+#from tokenizers import tokenizer
+
 def searchArgs(tokens, start):
-    if tokens[start]["type"] != "openParenthese":
+    if not tokens[start]["type"] == "(":
         raise NameError(parserConst["errorMissingOpenParenthesis"])
-    findEnd = False
+    foundEnd = False
     end = 0
     args = []
-    for i in range(len(tokens)):
-        if tokens[i]["type"] == "symboleCloseParenthesis":
-            findEnd = True
+    for i in range(start, len(tokens)):
+        if tokens[i]["type"] == ")":
+            foundEnd = True
             end = i
-            break;
-        elif tokens[i]["type"] == "typeWord":
-            args.append({ "type" : "variable", "name" : tokens[i]["name"] })
-        elif tokens[i]["type"] == "typeNumber":
-            args.append({ "type" : "variable", "name" : tokens[i]["name"] })
+            break
+        elif tokens[i]["type"] == "word":
+            args.append({ "type" : "word", "name" : tokens[i]["value"] })
+        elif tokens[i]["type"] == "number":
+            args.append({ "type" : "number", "name" : tokens[i]["value"] })
 
-    if not findEnd:
+    if not foundEnd:
         raise NameError(parserConst["errorMissingClosingParenthesis"])
     if len(args) == 0:
         raise NameError(parserConst["errorEmptyArguments"])
@@ -30,13 +37,17 @@ def searchCloseCurlBrace(tokens, start):
         raise NameError(parserConst["errorExeceptCurlBrace"])
     i = start
     while i<len(tokens):
-        i+=1
-        if tokens[i]["type"]==constant.symbolCloseCurlyBrace :#constants.symbolCloseCurlyBrace:
+        if tokens[i]["type"]==constants.symbolCloseCurlyBrace :#constants.symbolCloseCurlyBrace:
             countCurlBrace-=1
+        elif tokens[i]["type"] == constants.symbolOpenCurlyBrace:
+            countCurlBrace+=1
+        if countCurlBrace == 0:
             break
+        i+=1
     if countCurlBrace!=0:
         raise NameError(parserConst["errorExeceptCurlBrace"])
     end = i
     return {"start":start, "end":end}
+
 
 

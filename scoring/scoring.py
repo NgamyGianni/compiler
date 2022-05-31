@@ -18,10 +18,42 @@ def scoring(code):
         print("")
         # tokens = [{"name" : "switch", "type" : "statementSwitch"},
         # {"name":"toto", "type":"variable"}]
-        AST = parser.parser(tokens)
+        AST = []
+        AST = parser.parser(AST, tokens, 0, len(tokens))
+        # for node in AST:
+        #     print(node)
+        displayAST(AST, False, 0, len(AST))
+
+
         if(len(AST) > 0):
+            # print("")
+            print("score: "),
             print(numberLine(AST)+1)
 
-        print("------------------------------")
+        # print("------------------------------")
     except Exception as e:
         print(e)
+
+def displayAST(AST, isInnerAST, acc, end):
+    currentCpt = 0
+    for node in AST:
+        currentCpt += 1
+        if isInnerAST:
+            for i in range(acc):
+                print("\t"),
+        print(node)
+        if not node.get("AST") == None:
+            if currentCpt == end:
+                acc -= 1
+            isInnerAST = True
+            acc += 1
+            print("")
+
+            for i in range(acc):
+                print("\t"),
+            print("------------ subTree "+str(acc)+" -------------")
+            displayAST(node["AST"], isInnerAST, acc, len(node["AST"]))
+
+            for i in range(acc):
+                print("\t"),
+            print("-------------------------------------\n")

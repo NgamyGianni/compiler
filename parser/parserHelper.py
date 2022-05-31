@@ -1,6 +1,16 @@
 #from asyncio import constants
 import parserConst
+<<<<<<< HEAD
+import os
+import sys
+libdir = os.path.dirname(__file__)
+sys.path.append(os.path.split(libdir)[0])
+#print(os.path.split(libdir))
+from tokenizers import constants
+#from tokenizers import tokenizer
+=======
 from .. import tokenizer.constants as constant
+>>>>>>> 19350616f68ea295ecf5e46ca2f82638a71795c0
 
 def searchArgs(tokens, start):
     if tokens[start]["type"] != "openParenthese":
@@ -31,7 +41,11 @@ def searchCloseCurlBrace(tokens, start):
         raise NameError(parserConst["errorExeceptCurlBrace"])
     i = start
     while i<len(tokens):
+<<<<<<< HEAD
+        if tokens[i]["type"]==constants.symbolCloseCurlyBrace :#constants.symbolCloseCurlyBrace:
+=======
         if tokens[i]["type"]==constant.symbolCloseCurlyBrace :#constants.symbolCloseCurlyBrace:
+>>>>>>> 19350616f68ea295ecf5e46ca2f82638a71795c0
             countCurlBrace-=1
             break
         i+=1

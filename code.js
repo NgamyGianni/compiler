@@ -15,5 +15,5 @@ switch (fruit) {
 
 function prendre(val1, val2){
     val1;
-    val1
+    val2;
 }

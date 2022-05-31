@@ -11,9 +11,10 @@ switch (fruit) {
   case "orange":
     console.log("price 5 cents");
     break;
-}
+
 
 function prendre(val1, val2){
+    {
     val1;
     val1
 }

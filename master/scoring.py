@@ -6,7 +6,7 @@ def scoring(code):
     try:
         print("----------- Tokens -----------")
 
-        code = "test.js"
+        #code = "test.js"
         tokens = tokenizer.charsToTableTokens(code)
         print("")
         for token in tokens:

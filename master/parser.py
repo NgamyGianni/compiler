@@ -20,9 +20,12 @@ def parserFunc(AST, tokens, start, end):
         elif token["type"] == constants.symbolEqual:
             expression = factory.create(constants.symbolEqual, tokens, i)
 
+        elif token["type"] == "word" and token["value"] == parserConst.declarationFunction:
+            expression = factory.create(
+                parserConst.declarationFunction, tokens, i)
         if expression:
             AST.append(expression)
-            i = expression["end"] + 1
+            i = expression["end"] 
         else:
             AST.append(tokens[i])
         i += 1

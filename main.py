@@ -5,7 +5,6 @@ from scoring import scoring
 file = open("test.js", "r")
 code = file.read()
 scoring.scoring(code)
-
 file.close()
 
 # tokens01 = tokenizer.constrKeyword(code, "const")
@@ -20,3 +19,5 @@ file.close()
 # print(tokens)
 # parser.parser(tokens)
 # scoring.scoring(code)
+if __name__=="__main__":
+    print("I am the main module")

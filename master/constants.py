@@ -14,8 +14,8 @@ specialChars = {
     'opAnd': {'symbol': 'and', 'value': "&&"},
     'opOr': {'symbol': 'or', 'value': "||"},
     'quotationMark': {'symbol': 'quotationMark', 'value': '""'},
-    'openParenthesis': {'symbol': 'openParenthese', 'value': "("},
-    'closeParenthesis': {'symbol': 'closeParenthese', 'value': ")"},
+    'openParenthesis': {'symbol': 'openParenthesis', 'value': "("},
+    'closeParenthesis': {'symbol': 'closeParenthesis', 'value': ")"},
     'openCurlyBrace': {'symbol': 'openCurlyBrace', 'value': "{"},
     'closeCurlyBrace': {'symbol': 'closeCurlyBrace', 'value': "}"},
     'point': {'symbol': 'point', 'value': "."},
@@ -41,6 +41,8 @@ symbolOpenCurlyBrace = "openCurlyBrace"
 symbolCloseCurlyBrace = "closeCurlyBrace"
 symbolPoint = "point"
 symbolSemiColon = "semiColon"
-
 typeNumber = "number"
 typeWord = "word"
+
+# if __name__=="__main__":
+#     print("I am in constant module")

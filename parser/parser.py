@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# from expressionFactory import Factory
+>>>>>>> b6db19143f62f3b6e83b58d2654550158ce8235f
 import expressionFactory as factory
 from tokenizer import tokenizer
 from parserHelper import *

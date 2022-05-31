@@ -12,6 +12,10 @@ def create(type, tokens, start):
             return statementCase(tokens, start)
         elif type == parserConst.declarationFunction:
             return definedMethod(tokens, start)
+        elif type == "word" and tokens[start]["value"] in parserConst.declarationVariable:
+            return variableDeclaration(tokens, start)
+        elif type == "equal":
+            return variableAffectation(tokens, start)
 
 def definedMethod(tokens, start):
         if tokens[start+1]["type"]!=constants.typeWord:
@@ -20,6 +24,26 @@ def definedMethod(tokens, start):
         brace = parserHelper.searchCloseCurlBrace(tokens, arguments["end"]+1)
         
         return {"type": parserConst.declarationFunction, "argument": arguments["args"], "start": start, "end": brace["end"], "varType": arguments["args"][0]["type"], "AST": parser.parserFunc([], tokens, arguments["end"]+2, brace["end"])}
+        
+
+#def definedMethod(tokens, start):
+        #if tokens[start+1]["type"]:
+        # if tokens[start+1]["type"] == constants.typeNumber:
+        #     raise NameError(parserConst.exceptedErros[5])
+        # if tokens[start+2]["type"] != constants.specialChars["openParenthesis"]["value"]:
+        #     raise NameError(parserConst.exceptedErros[6])
+
+        # arguments =[]
+        # numbParathensis = 1
+        # i = start+3
+        # while i<len(tokens):
+        #     arguments.append(tokens[i])
+        #     if tokens[i]["type"] == constants.specialChars["closeParenthesis"]["value"]:
+        #         numbParathensis-=1
+        #         break
+        # if numbParathensis !=0:
+        #     raise NameError(parserConst.exceptedErros[0])
+        # return 0
 
    #check switch statement
 def statementSwitch(tokens, start):
@@ -58,15 +82,18 @@ def statementCase(tokens, start):
 #
     
 def variableDeclaration(tokens, start):
-        if(tokens[start+1]["type"] != constants.typeWord):
-            print("erreur : nom de variable non accepté")
+        if tokens[start+1]["type"] != constants.typeWord:
+            raise NameError(parserConst.parserConst["errorInvalidName"])
+        
         variableName= tokens[start+1]["value"]
-        return {"type": "expressionDeclaration", "variableName": variableName}
+        return {"type": parserConst.expressionDeclaration, "variableName": variableName}
 
 def variableAffectation(tokens, start):
-        if(tokens[start-1]["type"] != constants.typeWord):
-            print("erreur : nom de variable non accepté")
+        if tokens[start-1]["type"] != constants.typeWord :
+            raise NameError(parserConst.parserConst["errorInvalidName"])
+        
         variableName= tokens[start-1]["value"]
         variableValue= tokens[start+1]
-        return {"type": "expressionAffectation", "variableName": variableName, "variableValue": variableValue}
+        return {"type": parserConst.expressionAffectation, "variableName": variableName, "variableValue": variableValue}
     
+#tokens = [{'type': 'word', 'value': 'if'}, {'type': 'openParenthese'}, {'type': 'word', 'value': 'a'}, {'type': 'equalSame'}, {'type': 'number', 'value': '12'}, {'type': 'closeParenthese'}, {'type': 'word', 'value': ''}, {'type': 'openCurlyBrace'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': 'var'}, {'type': 'word', 'value': 'p'}, {'type': 'equal'}, {'type': 'number', 'value': '3'}, {'type': 'semiColon'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': 'if'}, {'type': 'openParenthese'}, {'type': 'word', 'value': 'b'}, {'type': 'equalSame'}, {'type': 'number', 'value': '3'}, {'type': 'closeParenthese'}, {'type': 'word', 'value': ''}, {'type': 'openCurlyBrace'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': 'let'}, {'type': 'word', 'value': 'i'}, {'type': 'equal'}, {'type': 'number', 'value': '5'}, {'type': 'semiColon'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'closeCurlyBrace'}, {'type': 'word', 'value': ''}, {'type': 'word', 'value': ''}, {'type': 'closeCurlyBrace'}, {'type': 'word', 'value': ''}]

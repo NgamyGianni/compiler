@@ -9,7 +9,7 @@ parserConst = {
     "errorMissingClosingBrace" : "Error: missing closing brace",
     "errorEmptyArguments" : "Error: no arguments given",
     "errorCaseInvalidType" : "Error: invalid type for case statement",
-    
+    "errorInvalidName" : "Error: invalid name for variable",
 }
 
 declarationFunction = "function"
